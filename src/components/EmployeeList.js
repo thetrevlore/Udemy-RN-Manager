@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import { FlatList } from 'react-native';
 import { employeesFetch } from '../actions';
-import { ListItem } from './ListItem';
+import ListItem from './ListItem';
 
 class EmployeeList extends Component {
   componentWillMount() {
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
   const employees = _.map(state.employees, (val, uid) => {
     return { ...val, uid };
   });
-
+  
   return { employees };
 };
 
