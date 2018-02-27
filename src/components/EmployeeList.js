@@ -10,16 +10,16 @@ class EmployeeList extends Component {
     this.props.employeesFetch();
   }
 
-  renderItem({ item }) {
-    return <ListItem item={item} />;
+  renderEmployee({ item }) {
+    return <ListItem employee={item} />;
   }
 
   render() {
     return (
       <FlatList
         data={this.props.employees}
-        renderItem={this.renderItem}
-        keyExtractor={(item) => item.uid}
+        renderItem={this.renderEmployee}
+        keyExtractor={(employee) => employee.uid}
       />
     );
   }
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
   const employees = _.map(state.employees, (val, uid) => {
     return { ...val, uid };
   });
-  
+
   return { employees };
 };
 
